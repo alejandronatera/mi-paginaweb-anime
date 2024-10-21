@@ -1,0 +1,55 @@
+.contenedor {
+    
+    background-color: rgb(218, 196, 28);
+    border-radius: 10px;
+    padding: 1px;
+
+
+}
+
+header{
+    border: 1px;color: black;
+}
+.carrito {
+    position: relative;
+    background-color: rgb(9, 140, 42);
+    border: 2px  rgb(9, 140, 42)  ;
+    border-radius: 10%;
+    height: 50px;
+    width: 60px;
+    transition: background color 0.3s ease-in-out ;
+    margin: 20px;
+    left: 20px;
+}
+
+.carrito:hover{
+    background-color:rgb(79, 176, 103)  ;
+
+}
+
+.carrito img{
+    position: absolute;
+    left: 1px;
+    top: 4px;
+    width: 80%;
+    height: 80%;
+    filter: invert(100%);
+    
+
+}
+
+.texto-carrito {
+    position: absolute;
+    background-color: rgb(246, 9, 9);
+    border: 2px rgb(241, 14, 14);
+    border-radius: 50%;
+    right: -10px;
+    top: -10px;
+    color: white;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+
+
+}
