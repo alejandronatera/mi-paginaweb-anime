@@ -15,18 +15,18 @@
         <h2>Nuestras Paginas</h2>
         <P>Animetodo.com , animecompleto.com , elmundoanime.com </P>
     
-        <form action="" method="post">
+        <form action="https://formsubmit.co/alejandronatera5@gmail.com" method="post">
             <div> 
         
               <label for="Nombre">Nombre</label>
-             <input type="text" name="Nombre" id="Nombre" placeholder="Ingrese su Nombre">
+             <input type="text" name="Nombre" id="Nombre" placeholder="Ingrese su Nombre" required>
         
             </div>
         
             <div>
            
-                <label for="Apellido"></label>
-                <input type="text" name="Apellido" id="Apellido" placeholder="Ingrese su Apellido">
+                <label for="Apellido">Apellido</label>
+                <input type="text" name="Apellido" id="Apellido" placeholder="Ingrese su Apellido"required>
 
             </div> 
 
@@ -43,21 +43,25 @@
                 <textarea name="consulta" id="consulta" placeholder="consulta a realizar"></textarea>
             </div>
 
+            <div>
+                <label for="condiciones">condiciones</label>
+                <input type="checkbox" name="condiciones" id="condiciones"required>
+            </div>
+            <br>
+            <button type="submit">Enviar</button>
         </form>
-
-        <button type="submit">Enviar</button>
+        
+        <div>
+            <a href="index.html">Inicio</a>
+        </div> 
+        
     </main> 
 
 </section>
     
-<section>
-    <div>
-        <a href="index.html">Inicio</a>
-    </div> 
-</section>
-    
-    <footer>
-        <small>copyright 2024</small>
-    </footer>
+<footer>
+    <small>copyright 2024</small>
+</footer>
+
 </body>
 </html>
