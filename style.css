@@ -1,11 +1,64 @@
-.contenedor {
+:root{
+    --color1:var(--color1)#3e1313;
+    --color2:var(--color2)#652f25;
+    --color3:var(--color3)#96573a;
+    --color4:var(--color4)#cf8c4e;
+    --color5:var(--color5)#efca66;
     
-    background-color: rgb(218, 196, 28);
-    border-radius: 10px;
-    padding: 1px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color:#96573a;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: #3e1313;  
 
 
 }
+
+.contenedor {
+    width: 150%;
+}
+
+.navegacion {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.navegacion h1 {
+    color: #cf8c4e;
+    font-size: 30px;
+
+}
+
+.navegacion.enlaces{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navegacion .enlaces a {
+    color: #cf8c4e;
+    text-decoration: none;
+    transition: color 0.4s;
+
+}
+
+.navegacion .enlaces a:hover{
+    color: #efca66;
+}
+
 
 header{
     border: 1px;color: black;
@@ -29,7 +82,7 @@ header{
 
 .carrito img{
     position: absolute;
-    left: 1px;
+    left: 3px;
     top: 4px;
     width: 80%;
     height: 80%;
@@ -81,8 +134,8 @@ header{
     width: 100%; 
     padding: 30px;
     color: rgb(234, 227, 235);
-    background-color: rgb(77, 160, 146);
-    border-radius: 70PX;
+    background-color: rgb(121, 16, 16);
+    border-radius: 30PX;
     padding: 40px;
     margin: 20px;
     left: 20px;
@@ -105,14 +158,16 @@ header{
 
 .container {
     display: flex;
+    width: auto;
     justify-content: center; /* Centra horizontalmente */
     align-items: center;    /* Centra verticalmente (si es necesario) */
+    
+    
 }
 
 .flex-anime{
-    display: flex;            
-    
-
+    display: flex; 
+    font-size: medium;          
 }
 .caja{
     
@@ -124,9 +179,44 @@ header{
     flex: 1 1 200px;        
     min-width: 220px;       
     color: rgb(255, 255, 255);
-    margin-top: 10px;
+    margin-top: 20px;
     
-    
-
 }
+
+.texto {
+      
+    border: 4px solid #f5efef; 
+    border-radius: 50px;     
+    background-color: #a5a48f;
+    padding: 15px;         
+    box-shadow: 0 2px 5px rgba(235, 232, 232, 0.1); 
+    flex: 1 1 200px;        
+    min-width: 220px;       
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    
+  
+  
+  
+        
+}
+.color{
+    color: #f5efef;
+}
+
+
+body .contacto{
+    display: flex;
+    border-radius: 50px;
+  
+}
+
+.contacto {
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+    background-color: aliceblue;
+    border-radius: 5;
+}
+
 
