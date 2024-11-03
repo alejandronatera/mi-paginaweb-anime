@@ -5,59 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .cuadro {
+            border: 4px solid #ede6e6;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(248, 248, 248, 0.1);
+        }
+        .cuadro img, .cuadro iframe {
+            margin-top: 10px;
+            margin: 50px;
+            border-radius: 20px;
+            width: 400px; /* Define un tamaño fijo */
+            height: 415px; /* Define un tamaño fijo */
+        }
+        .cuadro h3 {
+            font-size: 29px; /* Aumenta el tamaño de fuente */
+        }
+
+
+    </style>
 </head>
 <body>
     <header>
         <nav class="contenedor navegacion">
             <h1>
-         
-            <img src="./img/gokulogo.png"width=100 height="100" alt="goku logo"> Bienvenido al Mundo Del Anime
-      
-             </h1>
-             
-             <div class="enlaces">   > 
-                  
-                   <ul style="list-style-type: none; padding: 1; margin: 1; display: flex;">
-                      <li style="margin-right: 30px;"><a href="index.html">Inicio</a></li>
-                      <li style="margin-right: 30px;"><a href="#">Generos</a></li>
-                      <li style="margin-right: 30px;"><a href="./Tienda.html">Tienda</a>
-                      <li style="margin-right: 30px;"><a href="./resena.html">Reseñas</a></li>
-                      <li><a href="contacto.html">Contacto</a></li>
-                    </ul>    
-             </div>
-        </nav>     
+                <img src="./img/gokulogo.png" width="100" height="100" alt="goku logo"> Bienvenido al Mundo Del Anime
+            </h1>
+            <div class="enlaces">
+                <ul style="list-style-type: none; padding: 1; margin: 1; display: flex;">
+                    <li style="margin-right: 30px;"><a href="index.html">Inicio</a></li>
+                    <li style="margin-right: 30px;"><a href="#">Géneros</a></li>
+                    <li style="margin-right: 30px;"><a href="./Tienda.html">Tienda</a></li>
+                    <li style="margin-right: 30px;"><a href="./resena.html">Reseñas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <main>
         <section>
-            
             <h2>Tipos de Animes</h2>
-      
-                                     
-              
-            <ul>
-                <li>Mecha</li>
-                
-                <img src="./img/mecha.webp"width=300 height="315" alt="mecha">
-               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/1vwKj0o7WMU?si=OyU2BNjGNJKUDtZm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                
-                <li>Fantasia</li>
-               
-                <img src="./img/fantasia.jpg"width=300 height="315" alt="fantasia">
-               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/UoJB2x6tFP0?si=HaSNc63BD_8ud_SV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                
-                <li>Infantiles</li>
-                
-                <img src="./img/infantil.jpg"width=300 height="315" alt="infantiles">
-               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/la5JQ_AelE4?si=fEBvDU-uRAuthaYL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </ul>
-
-            
+            <div class="cuadro">
+                <h3>Mecha</h3>
+                <img src="./img/mecha.webp" alt="mecha">
+                <iframe src="https://www.youtube.com/embed/1vwKj0o7WMU?si=OyU2BNjGNJKUDtZm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="cuadro">
+                <h3>Fantasía</h3>
+                <img src="./img/fantasia.jpg" alt="fantasía">
+                <iframe src="https://www.youtube.com/embed/UoJB2x6tFP0?si=HaSNc63BD_8ud_SV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="cuadro">
+                <h3>Infantiles</h3>
+                <img src="./img/infantil.jpg" alt="infantiles">
+                <iframe src="https://www.youtube.com/embed/la5JQ_AelE4?si=fEBvDU-uRAuthaYL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
         </section>
     </main>
-
+</body>
 </body>
 </html>

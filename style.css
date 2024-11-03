@@ -15,13 +15,15 @@
 }
 
 body {
-    background-color:#96573a;
+    background-color: #96573a;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
     display: flex;
     justify-content: center;
-    background-color: #3e1313;  
+    background-color: #3e1313;
+    padding: 20px;  
 
 
 }
@@ -57,6 +59,20 @@ header {
 
 .navegacion .enlaces a:hover{
     color: #efca66;
+}
+
+.cuadro {
+    border: 4px solid #f5efef; 
+    border-radius: 50px;     
+    background-color: #afa514;
+    padding: 15px;         
+    box-shadow: 0 2px 5px rgba(235, 232, 232, 0.1); 
+    margin: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.cuadro img, .cuadro iframe {
+    margin-top: 10px;
 }
 
 
@@ -220,3 +236,54 @@ body .contacto{
 }
 
 
+
+/* Para dispositivos pequeños (teléfonos) */
+@media (min-width: 320px) and (max-width: 824px) {
+    .navegacion h1 {
+        font-size: 24px;
+    }
+    
+    .cuadro {
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    .cuadro img, .cuadro iframe {
+        width: 60%;
+        height: auto;
+    }
+}
+
+/* Para dispositivos medianos (tabletas) */
+@media (min-width: 768px) and (max-width: 824px) {
+    .navegacion h1 {
+        font-size: 28px;
+    }
+    
+    .cuadro {
+        padding: 20px;
+        margin: 15px;
+    }
+    
+    .cuadro img, .cuadro iframe {
+        width: 60%;
+        height: auto;
+    }
+}
+
+/* Para dispositivos grandes (computadoras) */
+@media (min-width:1648px) and (max-width:2560px){
+    .navegacion h1 {
+        font-size: 30px;
+    }
+    
+    .cuadro {
+        padding: 25px;
+        margin: 20px;
+    }
+    
+    .cuadro img, .cuadro iframe {
+        width: 30%;
+        height: 3;
+    }
+}
