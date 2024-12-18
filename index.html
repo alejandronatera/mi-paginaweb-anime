@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puro Anime</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -12,9 +13,9 @@
             <h1>
                 <img src="./img/gokulogo.png" width="100" height="100" alt="Logotipo de Goku de Dragon Ball"> Bienvenido al Mundo Del Anime
             </h1>
-            <div class="carrito">
-                <a href="">
-                    <img src="./img/carritodecompras1.png" alt="carrito">
+            <div class="carrito" onclick="mostrarCarrito()">
+                <a href="javascript:void(0);">
+                    <img src="./img/carritodecompras1.png" alt="Carrito de compras">
                 </a>
                 <span class="texto-carrito">6</span>
             </div>
@@ -40,7 +41,7 @@
         </div>
 
         <section class="container">
-            <img src="./img/FONDO ANIME MULTIPLES.jpg" alt="anime fondo múltiple">
+            <img src="./img/FONDO ANIME MULTIPLES.jpg" alt="Fondo de anime múltiple">
         </section>
 
         <section id="Generos" class="texto">
@@ -56,9 +57,9 @@
 
         <section class="caja">
             <div class="logo-container">
-                <img src="./img/mecha logo.jpeg" width="300" height="150" alt="logo anime mecha">
-                <img src="./img/fantasia logo.jpeg" width="300" height="150" alt="logo anime fantasía">
-                <img src="./img/goku.jpg" width="300" height="150" alt="logo de Goku">
+                <img src="./img/mecha logo.jpeg" width="300" height="150" alt="Logo de anime mecha">
+                <img src="./img/fantasia logo.jpeg" width="300" height="150" alt="Logo de anime fantasía">
+                <img src="./img/goku.jpg" width="300" height="150" alt="Logo de Goku">
             </div>
         </section>
 
@@ -79,8 +80,16 @@
         </aside>
     </main>
 
+    <div id="carrito-container" style="display: none;">
+        <h2>Carrito de Compras</h2>
+        <div id="carrito-items"></div>
+    </div>
+
     <footer>
-        Todos los derechos reservados Mi Página Web. Copyright 2024   
+        Todos los derechos reservados Mi Página Web. Copyright 2024
         <p>Todo el mundo es un Anime</p>
     </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
