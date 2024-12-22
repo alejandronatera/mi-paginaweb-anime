@@ -13,9 +13,11 @@ Productos, Contacto.
 
 6 formulario de reclamo y consulta utilizando web gratuita
 
-8 tiene un algunos styles en css , flex , border , color . 
+7 tiene un algunos styles en css , flex , border , color . 
 
-7 El proyecto esta subido a un hosting 
+8 carrito de compras  
+
+9 El proyecto esta subido a un hosting 
 gratuito GitHub Pages, con una URL 
 funcional.
 # mi-paginaweb-anime
