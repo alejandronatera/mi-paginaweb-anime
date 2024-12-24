@@ -53,13 +53,27 @@ function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
     if (producto) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        carrito.push({
-            ...producto,
-            quantity: 1 // Añade una propiedad de cantidad
-        });
+        const productoEnCarrito = carrito.find(p => p.id === id);
+        if (productoEnCarrito) {
+            productoEnCarrito.quantity += 1;
+        } else {
+            carrito.push({
+                ...producto,
+                quantity: 1 // Añade una propiedad de cantidad
+            });
+        }
         localStorage.setItem('carrito', JSON.stringify(carrito));
         alert('Producto añadido al carrito');
+        actualizarContadorCarrito(); // Actualizar el contador
     }
+}
+
+// Función para actualizar el contador del carrito
+function actualizarContadorCarrito() {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const contadorCarrito = document.getElementById('contador-carrito');
+    const cantidadTotal = carrito.reduce((total, producto) => total + producto.quantity, 0);
+    contadorCarrito.innerText = cantidadTotal;
 }
 
 // Función para mostrar los productos en el carrito
@@ -100,28 +114,31 @@ function mostrarCarrito() {
 
 // Ejecutar mostrarCarrito al cargar la página (para ocultar por defecto)
 window.onload = function() {
-    mostrarCarrito(); // Esto oculta el carrito al cargar la página
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            const nombre = document.getElementById('Nombre').value;
+            const apellido = document.getElementById('Apellido').value;
+            const email = document.getElementById('Email').value;
+            const condiciones = document.getElementById('condiciones').checked;
+
+            if (!nombre || !apellido || !email || !condiciones) {
+                alert('Por favor, completa todos los campos obligatorios y acepta los términos y condiciones.');
+                event.preventDefault();
+            } else if (!validateEmail(email)) {
+                alert('Por favor, ingresa un correo electrónico válido.');
+                event.preventDefault();
+            }
+        });
+    }
+
+    mostrarCarrito();
     cargarProductos().then(data => {
         productos = data;
-        generarProductos(); // O cualquier otra función que necesite los productos cargados
+        generarProductos(); 
     });
+    actualizarContadorCarrito(); // Llamar a esta función al cargar la página
 };
-
-// Validar el formulario de contacto
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    const nombre = document.getElementById('Nombre').value;
-    const apellido = document.getElementById('Apellido').value;
-    const email = document.getElementById('Email').value;
-    const condiciones = document.getElementById('condiciones').checked;
-
-    if (!nombre || !apellido || !email || !condiciones) {
-        alert('Por favor, completa todos los campos obligatorios y acepta los términos y condiciones.');
-        event.preventDefault();
-    } else if (!validateEmail(email)) {
-        alert('Por favor, ingresa un correo electrónico válido.');
-        event.preventDefault();
-    }
-});
 
 // Función para validar el formato del correo electrónico
 function validateEmail(email) {
