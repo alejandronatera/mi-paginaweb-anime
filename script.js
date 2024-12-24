@@ -22,18 +22,10 @@ function generarProductos() {
     const productContainer = document.querySelector('.product-container');
     productContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar los productos
     productos.forEach(producto => {
-        // Verifica la extensión de la imagen
-        let imgExtension = '.jpg';
-        if (producto.name.toLowerCase().includes('audiculares')) {
-            imgExtension = '.jpeg';
-        } else if (producto.name.toLowerCase().includes('series de anime')) {
-            imgExtension = '.jpg';
-        }
-
         const productItem = document.createElement('div');
         productItem.className = 'product-item';
         productItem.innerHTML = `
-            <img src="./img/${producto.name.replace(/ /g, '').toLowerCase()}${imgExtension}" alt="${producto.name}">
+            <img src="./img/${producto.name.replace(/ /g, '').toLowerCase()}.jpg" alt="${producto.name}">
             <h5>${producto.name}</h5>
             <p>${producto.description}</p>
             <p>$${producto.price.toFixed(2)}</p>
@@ -136,3 +128,28 @@ function validateEmail(email) {
     const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     return re.test(String(email).toLowerCase());
 }
+window.onload = function() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            const nombre = document.getElementById('Nombre').value;
+            const apellido = document.getElementById('Apellido').value;
+            const email = document.getElementById('Email').value;
+            const condiciones = document.getElementById('condiciones').checked;
+
+            if (!nombre || !apellido || !email || !condiciones) {
+                alert('Por favor, completa todos los campos obligatorios y acepta los términos y condiciones.');
+                event.preventDefault();
+            } else if (!validateEmail(email)) {
+                alert('Por favor, ingresa un correo electrónico válido.');
+                event.preventDefault();
+            }
+        });
+    }
+
+    mostrarCarrito();
+    cargarProductos().then(data => {
+        productos = data;
+        generarProductos(); 
+    });
+};

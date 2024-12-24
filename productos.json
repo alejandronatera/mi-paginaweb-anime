@@ -1,6 +1,30 @@
 [
-    { "id": 1, "name": "Camisa Anime", "description": "Camisa con diseños de anime, ideal para el verano", "price": 3.00, "amount": 300 },
-    { "id": 2, "name": "Audiculares Anime", "description": "Audiculares con diseños de anime, ideal para toda la familia", "price": 10.00, "amount": 200 },
-    { "id": 3, "name": "Series de Anime", "description": "Todas las series de anime que puedas imaginar, para ponerte al día en vacaciones", "price": 4.00, "amount": 5000 },
-    { "id": 4, "name": "Mangas", "description": "Mangas modernos y actuales, de la mejor calidad", "price": 3.00, "amount": 300 }
+    {
+        "id": 1,
+        "name": "Camisa Anime",
+        "description": "Ideal para el verano",
+        "price": 3.00,
+        "amount": 300
+    },
+    {
+        "id": 2,
+        "name": "audifonos",
+        "description": "Ideal para toda la familia",
+        "price": 10.00,
+        "amount": 200
+    },
+    {
+        "id": 3,
+        "name": "ANIMESDETODOSLOSTIEMPOS",
+        "description": "Para ponerte al día en vacaciones",
+        "price": 4.00,
+        "amount": 5000
+    },
+    {
+        "id": 4,
+        "name": "Mangas",
+        "description": "De la mejor calidad",
+        "price": 3.00,
+        "amount": 300
+    }
 ]
