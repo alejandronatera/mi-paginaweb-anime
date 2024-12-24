@@ -1,16 +1,55 @@
-// Definir un array de productos
-const productos = [
-    { id: 1, name: 'Camisa Anime', description: 'Camisa con diseños de anime, ideal para el verano', price: 3.00, amount: 300 },
-    { id: 2, name: 'Audiculares Anime', description: 'Audiculares con diseños de anime, ideal para toda la familia', price: 10.00, amount: 200 },
-    { id: 3, name: 'Series de Anime', description: 'Todas las series de anime que puedas imaginar, para ponerte al día en vacaciones', price: 4.00, amount: 5000 },
-    { id: 4, name: 'Mangas', description: 'Mangas modernos y actuales, de la mejor calidad', price: 3.00, amount: 300 }
-];
+// Función para cargar productos desde un JSON
+async function cargarProductos() {
+    try {
+        const respuesta = await fetch('productos.json'); // Asegúrate de que el archivo JSON esté en la misma ruta
+        const data = await respuesta.json();
+        return data;
+    } catch (error) {
+        console.error('Error al cargar los productos:', error);
+    }
+}
+
+let productos = [];
+
+// Cargar productos y ejecutar funciones necesarias
+cargarProductos().then(data => {
+    productos = data;
+    generarProductos(); // O cualquier otra función que necesite los productos cargados
+});
+
+// Función para generar la lista de productos
+function generarProductos() {
+    const productContainer = document.querySelector('.product-container');
+    productContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar los productos
+    productos.forEach(producto => {
+        // Verifica la extensión de la imagen
+        let imgExtension = '.jpg';
+        if (producto.name.toLowerCase().includes('audiculares')) {
+            imgExtension = '.jpeg';
+        } else if (producto.name.toLowerCase().includes('series de anime')) {
+            imgExtension = '.jpg';
+        }
+
+        const productItem = document.createElement('div');
+        productItem.className = 'product-item';
+        productItem.innerHTML = `
+            <img src="./img/${producto.name.replace(/ /g, '').toLowerCase()}${imgExtension}" alt="${producto.name}">
+            <h5>${producto.name}</h5>
+            <p>${producto.description}</p>
+            <p>$${producto.price.toFixed(2)}</p>
+            <p>Stock: ${producto.amount} unidades</p>
+            <button onclick="mostrarDescripcion(${producto.id})">Mostrar Descripción</button>
+            <button onclick="agregarAlCarrito(${producto.id})">Comprar</button>
+        `;
+        productContainer.appendChild(productItem);
+    });
+}
 
 // Función para mostrar la descripción amplia del producto
 function mostrarDescripcion(id) {
     const producto = productos.find(p => p.id === id);
     if (producto) {
-        const card = document.querySelector(`.product-item:nth-child(${id})`);
+        const card = document.querySelector(`.product-item:nth-child(${productos.indexOf(producto) + 1})`);
         const descripcionParrafo = document.createElement('p');
         descripcionParrafo.innerText = producto.description;
         card.appendChild(descripcionParrafo);
@@ -61,5 +100,39 @@ function mostrarCarrito() {
     totalContainer.innerHTML = `<h2>Total: $${total.toFixed(2)}</h2>`;
 }
 
-// Ejecutar mostrarCarrito al cargar la página
-window.onload = mostrarCarrito;
+// Mostrar/ocultar el carrito
+function mostrarCarrito() {
+    const carritoContainer = document.getElementById('carrito-container');
+    carritoContainer.style.display = carritoContainer.style.display === 'none' ? 'block' : 'none';
+}
+
+// Ejecutar mostrarCarrito al cargar la página (para ocultar por defecto)
+window.onload = function() {
+    mostrarCarrito(); // Esto oculta el carrito al cargar la página
+    cargarProductos().then(data => {
+        productos = data;
+        generarProductos(); // O cualquier otra función que necesite los productos cargados
+    });
+};
+
+// Validar el formulario de contacto
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    const nombre = document.getElementById('Nombre').value;
+    const apellido = document.getElementById('Apellido').value;
+    const email = document.getElementById('Email').value;
+    const condiciones = document.getElementById('condiciones').checked;
+
+    if (!nombre || !apellido || !email || !condiciones) {
+        alert('Por favor, completa todos los campos obligatorios y acepta los términos y condiciones.');
+        event.preventDefault();
+    } else if (!validateEmail(email)) {
+        alert('Por favor, ingresa un correo electrónico válido.');
+        event.preventDefault();
+    }
+});
+
+// Función para validar el formato del correo electrónico
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    return re.test(String(email).toLowerCase());
+}
